@@ -47,10 +47,10 @@ function OutputRoutes() {
         <Routes>
             <Route path='/' element={<UserAcess/>}/>
             <Route path ='/home' element= {
-             <ProtectedRoute>
+{/*              <ProtectedRoute> */}
 
                <Index handleSubmit={handleSubmit} handleCloseModal={handleCloseModal} handleOpenModal={handleOpenModal} handleDeleteTask={handleDeleteTask} isModalOpen={isModalOpen} selectedTask={selectedTask} />
-             </ProtectedRoute>
+{/*              </ProtectedRoute> */}
        
               }/>
      

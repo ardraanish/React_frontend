@@ -6,14 +6,26 @@ import Cookies from "js-cookie";
 const API_URL = import.meta.env.REACT_APP_API_URL_1 || 'http://localhost:7000';
 
 
-export const signupUser = createAsyncThunk('signupUser', async (signupData, { rejectWithValue }) => {
-  try {
-    const response = await axios.post(API_URL,signupData); // Changed endpoint to /signup
-    return response.data;
-  } catch (error) {
-    return rejectWithValue(error.response ? error.response.data : error.message); // Returns specific error or a fallback message
+// export const signupUser = createAsyncThunk('signupUser', async (signupData, { rejectWithValue }) => {
+//   try {
+//     const response = await axios.post(API_URL,signupData); // Changed endpoint to /signup
+//     return response.data;
+//   } catch (error) {
+//     return rejectWithValue(error.response ? error.response.data : error.message); // Returns specific error or a fallback message
+//   }
+// });
+
+export const signupUser = createAsyncThunk(
+  'signupUser',
+  async (signupData, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(`${API_URL}/signup`, signupData);  // Add '/signup' endpoint
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response?.data || error.message);
+    }
   }
-});
+);
 
 export const signinUser = createAsyncThunk('signinUser', async (signinData, { rejectWithValue }) => {
   try {
