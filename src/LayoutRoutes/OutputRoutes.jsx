@@ -16,7 +16,7 @@ function OutputRoutes() {
   const { tasks, status, error, addTask, editTask, removeTask } = useTask();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
-  console.log(selectedTask,"selectedTask")
+  // console.log(selectedTask,"selectedTask")
 
   const handleOpenModal = (task = null) => {
     setSelectedTask(task);
