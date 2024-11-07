@@ -290,7 +290,7 @@ function UserAccess() {
     dispatch(signinUser({ email, password }))
       .unwrap()
       .then((response) => {
-        if (response && response.token) {
+        if ( response.token) {
           setEmail('');
           setPassword('');
           navigate('/home');
