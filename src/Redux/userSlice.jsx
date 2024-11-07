@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const API_URL = process.env.REACT_APP_API_URL_1 || 'http://localhost:7000/';
+const API_URL = process.env.REACT_APP_API_URL_1 || 'http://localhost:7000';
 
 
 // export const signupUser = createAsyncThunk('signupUser', async (signupData, { rejectWithValue }) => {
