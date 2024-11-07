@@ -287,21 +287,21 @@ function UserAccess() {
 
     setValidationError('');
     
-    dispatch(signinUser({ email, password }))
-      .unwrap()
-      .then((response) => {
-        if ( response.token) {
-          setEmail('');
-          setPassword('');
-          navigate('/home');
-        } else {
-          console.error('Login failed:', response.error);
-        }
-      })
-      .catch((error) => {
-        console.error('Error during login:', error);
-      });
-  };
+    dispatch(signupUser({ username, email, role, password }))
+   .unwrap()  // Unwraps the action, letting you handle success/failure directly
+   .then((response) => {
+     if (response.ok) { // Assuming your server sends a response with an `ok` status
+       setUsername('');
+       setEmail('');
+       setRole('');
+       setPassword('');
+       onClose();  // Close modal on success
+     } else {
+       console.error("Signup failed:", response.error || "Unknown error");
+     }
+   })
+   .catch((err) => console.error("Signup failed:", err));
+
 
   const formStyles = {
     display: 'flex',
