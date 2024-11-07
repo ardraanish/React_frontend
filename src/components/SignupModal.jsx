@@ -189,5 +189,5 @@ const closeButtonStyle = {
   fontSize: '14px',
   width: '100%',
 };
-
+}
 export default SignupModal;
