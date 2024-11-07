@@ -63,7 +63,7 @@
 // // export default TaskComponent;
 
 
-import React, { useState, Suspense } from 'react';
+import React, { useState,Suspense } from 'react';
 import useTask from '../components/CustumHook/useTask';
 import Pending from '../components/Pending';
 import Complete from './complete';

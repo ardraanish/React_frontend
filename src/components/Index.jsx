@@ -15,7 +15,7 @@
 
 import React, { Suspense } from 'react';
 import Footer from './Footer';
-import withAuth from './withAuth';
+
 
 const Header = React.lazy(() => import('../components/Header'));
 const TaskComponent = React.lazy(() => import('../components/TaskComponent'));

@@ -164,7 +164,7 @@ function UserAccess() {
             </form>
             <h6>
               If you don't have an account,{' '}
-              <a
+              <a href='/'
                 onClick={toggleSignupModal}
                 style={{ cursor: 'pointer', color: 'blue' }}
               >
