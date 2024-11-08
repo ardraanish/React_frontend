@@ -2,30 +2,31 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 
-const API_URL = import.meta.env.REACT_APP_API_URL || 'http://localhost:7000/home';
+// const API_URL = import.meta.env.REACT_APP_API_URL || 'http://localhost:7000/home';
 // const API_URL =  'http://localhost:7000/home';
-
+const API_URL = process.env.REACT_APP_API_URL_1
 
 // Async Thunks for CRUD operations
 export const fetchTasks = createAsyncThunk('home/fetchTask', async () => {
-  const response = await axios.get(API_URL);
+  // const response = await axios.get(API_URL);
+  const response = await axios.get(`${API_URL}/home`);
   return response.data;
 });
 
 export const createTask = createAsyncThunk('home/createTask', async (taskData) => {
-  const response = await axios.post(API_URL, taskData);
+  const response = await axios.post(`${API_URL}/home`, taskData);
   return response.data;
 });
 
 export const updateTask = createAsyncThunk('home/updateTask', async ({ id, updatedData }) => {
-  const response = await axios.put(`${API_URL}/${id}`, updatedData);
+  const response = await axios.put(`${API_URL}/home/${id}`, updatedData);
   return response.data;
 });
 
 
 
 export const deleteTask = createAsyncThunk('tasks/deleteTask', async (id) => {
-  await axios.delete(`${API_URL}/${id}`);
+  await axios.delete(`${API_URL}/home/${id}`);
   return id;
 });
 
